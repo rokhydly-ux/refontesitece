@@ -6,7 +6,7 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/revopsce/', // <-- C'EST LA SEULE LIGNE AJOUTÉE
+    base: '/refontesitece/', // <-- C'EST LA SEULE LIGNE AJOUTÉE
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
