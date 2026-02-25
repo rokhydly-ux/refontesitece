@@ -180,7 +180,7 @@ const sections = [
         title: 'Schema.org (JSON-LD)',
         status: 'Bloquant',
         defect: 'Google n\'indexe pas les prix et stocks.',
-        action: 'Injection du Schema Product sur le catalogue et LocalBusiness pour les showrooms.',
+        action: "Injection du Schema Product sur le catalogue et LocalBusiness pour les showrooms. Indispensable pour que Google comprenne et affiche les prix, la disponibilité et les informations sur les entreprises locales directement dans les résultats de recherche, améliorant ainsi la visibilité et le taux de clics.",
         icon: Code,
       },
       {
@@ -194,7 +194,7 @@ const sections = [
         title: 'Balisage Titres H1/H2',
         status: 'Majeur',
         defect: 'Titres non optimisés SEO.',
-        action: 'H1 Accueil = "Équipement Professionnel CHR & Transformation Agricole au Sénégal". Les noms de produits en grille doivent être des H2 ou H3.',
+        action: 'H1 Accueil = "Équipement Professionnel CHR & Transformation Agricole au Sénégal". Les noms de produits en grille doivent être des H2 ou H3. Essentiel pour structurer le contenu, aider Google à comprendre l\'importance relative des informations et améliorer le classement sur les mots-clés ciblés.',
         icon: Heading1,
       },
     ],
@@ -279,6 +279,13 @@ const TaskCard: FC<{ task: Task }> = ({ task }) => {
               <h4 className="font-semibold text-slate-600">Optimisation fonctionnelle requise :</h4>
               <p className="mt-1 text-slate-500">{task.action}</p>
             </div>
+            <div className="mt-4">
+              <img
+                src={`https://picsum.photos/seed/${encodeURIComponent(task.title)}/600/400`}
+                alt={`Illustration for ${task.title}`}
+                className="rounded-lg border border-slate-200"
+              />
+            </div>
                                                 <div className="mt-4">
               <img
                 src={`https://picsum.photos/seed/${encodeURIComponent(task.title)}/600/400`}
@@ -340,13 +347,22 @@ export default function App() {
   return (
     <div id="top" className="min-h-screen bg-slate-100 font-sans text-slate-800">
       <div className="container mx-auto px-4 py-12">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tighter text-slate-900 md:text-5xl">
-            Cahier des Charges V2 - centralequipements.com
-          </h1>
-          <p className="mt-3 max-w-2xl mx-auto text-slate-600 md:text-lg">
-            Audit unifié : UX, Conversion, SEO et Structure de Page. Cliquez sur les cartes pour voir le détail technique.
-          </p>
+        <header className="mb-12 flex items-center justify-between">
+          <div className="text-left">
+            <h1 className="text-4xl font-bold tracking-tighter text-slate-900 md:text-5xl">
+              Cahier des Charges V2 - centralequipements.com
+            </h1>
+            <p className="mt-3 max-w-2xl text-slate-600 md:text-lg">
+              Audit unifié : UX, Conversion, SEO et Structure de Page. Cliquez sur les cartes pour voir le détail technique.
+            </p>
+          </div>
+          <div className="relative w-[300px] h-[225px]">
+            <img 
+              src="https://i.ibb.co/yFJbSGtz/LOGO-CENTRAL-NOIRE.png" 
+              alt="CentraleÉquipements Logo" 
+              className="glitch-animation absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
         </header>
 
         <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -384,7 +400,7 @@ export default function App() {
           </p>
           <div className="flex items-center gap-4">
             <Button onClick={handleExportXLS} variant="outline">Export to XLS</Button>
-            <Button>Accuser réception de la feuille de route</Button>
+            <Button className="bg-corporate-blue text-white hover:bg-corporate-blue/90">Accuser réception de la feuille de route</Button>
           </div>
         </div>
       </footer>
